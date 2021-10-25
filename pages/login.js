@@ -12,7 +12,7 @@ function Login() {
                 <title>Login</title>
             </Head>
             <LoginContainer>
-                <Logo src="http://assets.stickpng.com/images/580b57fcd9996e24bc43c543.png" />
+                <Logo src="https://www.transparentpng.com/thumb/whatsapp/pGdUSs-clipart-png-whatsapp-logotype.png" />
                 <Button onClick={SignIn} variant="outlined">
                     <img
                         src="https://www.freepnglogos.com/uploads/google-logo-png/google-logo-png-suite-everything-you-need-know-about-google-newest-0.png"
@@ -41,7 +41,7 @@ const LoginContainer = styled.div`
     flex-direction: column;
     padding: 100px;
     align-items: center;
-    background: transparent;
+
     border-radius: 5px;
     box-shadow: 0px 4px 14px -3px rgba(0, 0, 0, 0.7);
 `;
