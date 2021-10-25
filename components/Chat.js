@@ -1,4 +1,3 @@
-import { Avatar } from '@material-ui/core';
 import styled from 'styled-components';
 import getReceivingEmail from '../utils/getReceivingEmail';
 import { useAuthState } from 'react-firebase-hooks/auth';
@@ -162,10 +161,11 @@ const ChatWrap = styled.div`
         word-break: break-all;
     }
 `;
-const UserAvatar = styled(Avatar)`
+const UserAvatar = styled.img`
     margin: 5px;
     margin-right: 15px;
     transform: scale(1.3);
+    width: 50px;
 `;
 const Ago = styled.div`
     position: absolute;

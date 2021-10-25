@@ -1,6 +1,6 @@
 import Head from 'next/head';
 import styled from 'styled-components';
-import { Button } from '@material-ui/core';
+
 import { auth, provider } from '../firebase';
 function Login() {
     const SignIn = () => {
@@ -43,3 +43,5 @@ const Logo = styled.img`
     width: 200px;
     margin-bottom: 50px;
 `;
+
+const Button = styled.div``;

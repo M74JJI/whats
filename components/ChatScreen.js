@@ -1,16 +1,13 @@
 import styled from 'styled-components';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { useRouter } from 'next/router';
-import { Avatar } from '@material-ui/core';
+
 import { auth, db, storage } from '../firebase';
-import MoreVertIcon from '@material-ui/icons/MoreVert';
-import AttachFileIcon from '@material-ui/icons/AttachFile';
-import { IconButton } from '@material-ui/core';
+
 import firebase from 'firebase';
 import { useCollection } from 'react-firebase-hooks/firestore';
 import Message from './Message';
-import InsertEmoticonIcon from '@material-ui/icons/InsertEmoticon';
-import MicIcon from '@material-ui/icons/Mic';
+
 import { useEffect, useState } from 'react';
 import getReceivingEmail from '../utils/getReceivingEmail';
 import TimeAgo from 'timeago-react';
@@ -18,13 +15,12 @@ import { useRef } from 'react';
 import Lightbox from 'react-image-lightbox';
 import 'react-image-lightbox/style.css';
 import dynamic from 'next/dynamic';
+import 'emoji-mart/css/emoji-mart.css';
+import { useSelector } from 'react-redux';
+import { CgAttachment, CgMoreVerticalAlt, CgClose } from 'react-icons/cg';
 const Picker = dynamic(() => import('emoji-picker-react'), {
     ssr: false,
 });
-
-import 'emoji-mart/css/emoji-mart.css';
-import CloseIcon from '@material-ui/icons/close';
-import { useSelector } from 'react-redux';
 function ChatScreen({ chat, messages }) {
     const filePickerRef = useRef(null);
     const endOfMsg = useRef(null);
@@ -179,9 +175,9 @@ function ChatScreen({ chat, messages }) {
                 }}
             >
                 {recipient ? (
-                    <Avatar src={recipient?.photoURL} />
+                    <img src={recipient?.photoURL} />
                 ) : (
-                    <Avatar src="https://chatwasap.com/assets/img/default-avatar.png"></Avatar>
+                    <img src="https://chatwasap.com/assets/img/default-avatar.png"></img>
                 )}
                 <HeaderInfos className="hInfos">
                     <h3>{ReceivingEmail}</h3>
@@ -206,14 +202,14 @@ function ChatScreen({ chat, messages }) {
                 </HeaderInfos>
                 <HeaderIcons className="hide">
                     <IconButton onClick={() => filePickerRef.current.click()}>
-                        <AttachFileIcon
+                        <CgAttachment
                             style={{
                                 color: darkTheme && 'white',
                             }}
                         />
                     </IconButton>
                     <IconButton>
-                        <MoreVertIcon
+                        <CgMoreVerticalAlt
                             style={{
                                 color: darkTheme && 'white',
                             }}
@@ -237,7 +233,7 @@ function ChatScreen({ chat, messages }) {
             </MessageContainer>
             {file && (
                 <ShowCase>
-                    <CloseIconn
+                    <CgClose
                         onClick={() => {
                             setSelectedFile(null);
                             setFile(null);
@@ -482,7 +478,8 @@ const Background = styled.div`
         left: 0;
     }
 `;
-const CloseIconn = styled(CloseIcon)`
+const CloseIconn = styled.button`
     cursor: pointer;
     margin: 5px;
 `;
+const IconButton = styled.div``;

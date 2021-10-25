@@ -1,8 +1,5 @@
 import styled from 'styled-components';
-import { Avatar, Button, IconButton } from '@material-ui/core';
-import ChatIcon from '@material-ui/icons/Chat';
-import MoreVertIcon from '@material-ui/icons/MoreVert';
-import SearchIcon from '@material-ui/icons/Search';
+
 import * as EmailValidator from 'email-validator';
 import { auth, db } from '../firebase';
 import { useAuthState } from 'react-firebase-hooks/auth';
@@ -10,9 +7,9 @@ import { useCollection } from 'react-firebase-hooks/firestore';
 import Chat from './Chat';
 import getReceivingEmail from '../utils/getReceivingEmail';
 import { useState } from 'react';
-import CloseIcon from '@material-ui/icons/close';
-
+import { CgAttachment, CgMoreVerticalAlt, CgClose } from 'react-icons/cg';
 import { MdDarkMode } from 'react-icons/md';
+import { BsChatRightTextFill } from 'react-icons/bs';
 import { FiSun } from 'react-icons/fi';
 import { useDispatch, useSelector } from 'react-redux';
 function Sidebar() {
@@ -61,7 +58,7 @@ function Sidebar() {
                 >
                     {show && (
                         <AddContact>
-                            <Close onClick={() => setShow(false)} />
+                            <CgClose onClick={() => setShow(false)} />
                             <Title>Add Contact</Title>
 
                             <InputEmail
@@ -119,7 +116,7 @@ function Sidebar() {
 
                             <IconButton>
                                 <div className="hide">
-                                    <ChatIcon
+                                    <BsChatRightTextFill
                                         style={{
                                             background: darkTheme && '#222f37',
                                             fill: darkTheme && 'white',
@@ -129,7 +126,7 @@ function Sidebar() {
                             </IconButton>
                             <IconButton>
                                 <div className="hide">
-                                    <MoreVertIcon
+                                    <CgMoreVerticalAlt
                                         style={{
                                             background: darkTheme && '#222f37',
                                             fill: darkTheme && 'white',
@@ -232,7 +229,8 @@ const SearchInput = styled.input`
     flex: 1;
     padding-left: 10px;
 `;
-const StartNewChat = styled(Button)`
+const StartNewChat = styled.button`
+    background: transparent;
     &&& {
         border-top: 1px solid whitesmoke;
         border-bottom: 1px solid whitesmoke;
@@ -260,8 +258,9 @@ const Header = styled.div`
     height: 80px;
 `;
 
-const UserAvatar = styled(Avatar)`
+const UserAvatar = styled.img`
     cursor: pointer;
+    width: 50px;
     :hover {
         opacity: 0.8;
     }
@@ -321,11 +320,7 @@ const AddContact = styled.div`
 `;
 //onClick={createChat}
 const Title = styled.h2``;
-const Close = styled(CloseIcon)`
-    position: absolute;
-    left: 1rem;
-    cursor: pointer;
-`;
+
 const ButtonSubmit = styled.button`
     padding: 0.5rem 0;
     border: none;
@@ -337,3 +332,4 @@ const HideShow = styled.div`
     font-size: 10px;
     display: none;
 `;
+const IconButton = styled.div``;
