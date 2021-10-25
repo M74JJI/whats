@@ -87,6 +87,7 @@ function Sidebar() {
                         <IconsContainer>
                             {darkTheme === false ? (
                                 <IconButton
+                                    style={{ fontSize: '25px' }}
                                     onClick={() => {
                                         dispatch({
                                             type: 'SWITCH_THEME',
@@ -94,10 +95,18 @@ function Sidebar() {
                                         });
                                     }}
                                 >
-                                    <MdDarkMode />
+                                    <MdDarkMode
+                                        style={{
+                                            background: darkTheme && '#222f37',
+                                            fill: darkTheme
+                                                ? 'white'
+                                                : '#323739',
+                                        }}
+                                    />
                                 </IconButton>
                             ) : (
                                 <IconButton
+                                    style={{ fontSize: '25px' }}
                                     onClick={() =>
                                         dispatch({
                                             type: 'SWITCH_THEME',
@@ -107,7 +116,6 @@ function Sidebar() {
                                 >
                                     <FiSun
                                         style={{
-                                            background: darkTheme && '#222f37',
                                             color: darkTheme && 'white',
                                         }}
                                     />
@@ -116,22 +124,38 @@ function Sidebar() {
 
                             <IconButton>
                                 <div className="hide">
-                                    <BsChatRightTextFill
+                                    <svg
                                         style={{
-                                            background: darkTheme && '#222f37',
-                                            fill: darkTheme && 'white',
+                                            fill: darkTheme
+                                                ? 'white'
+                                                : '#323739',
                                         }}
-                                    />
+                                        viewBox="0 0 24 24"
+                                        width="24"
+                                        height="24"
+                                        className=""
+                                    >
+                                        <path d="M19.005 3.175H4.674C3.642 3.175 3 3.789 3 4.821V21.02l3.544-3.514h12.461c1.033 0 2.064-1.06 2.064-2.093V4.821c-.001-1.032-1.032-1.646-2.064-1.646zm-4.989 9.869H7.041V11.1h6.975v1.944zm3-4H7.041V7.1h9.975v1.944z"></path>
+                                    </svg>
                                 </div>
                             </IconButton>
                             <IconButton>
                                 <div className="hide">
-                                    <CgMoreVerticalAlt
+                                    <svg
                                         style={{
-                                            background: darkTheme && '#222f37',
-                                            fill: darkTheme && 'white',
+                                            fill: darkTheme
+                                                ? 'white'
+                                                : '#323739',
                                         }}
-                                    />
+                                        viewBox="0 0 24 24"
+                                        width="24"
+                                        height="24"
+                                    >
+                                        <path
+                                            fill="currentColor"
+                                            d="M12 7a2 2 0 1 0-.001-4.001A2 2 0 0 0 12 7zm0 2a2 2 0 1 0-.001 3.999A2 2 0 0 0 12 9zm0 6a2 2 0 1 0-.001 3.999A2 2 0 0 0 12 15z"
+                                        ></path>
+                                    </svg>
                                 </div>
                             </IconButton>
                         </IconsContainer>
@@ -229,8 +253,11 @@ const SearchInput = styled.input`
     flex: 1;
     padding-left: 10px;
 `;
-const StartNewChat = styled.button`
+const StartNewChat = styled.div`
     background: transparent;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     &&& {
         border-top: 1px solid whitesmoke;
         border-bottom: 1px solid whitesmoke;
@@ -260,13 +287,21 @@ const Header = styled.div`
 
 const UserAvatar = styled.img`
     cursor: pointer;
+    border-radius: 100%;
     width: 50px;
     :hover {
         opacity: 0.8;
     }
 `;
 
-const IconsContainer = styled.div``;
+const IconsContainer = styled.div`
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    padding-left: 5px;
+    z-index: 1;
+    cursor: pointer;
+`;
 const AddContact = styled.div`
     position: absolute;
     left: 100%;
@@ -333,3 +368,6 @@ const HideShow = styled.div`
     display: none;
 `;
 const IconButton = styled.div``;
+const Image = styled.img`
+    border-radius: 100%;
+`;

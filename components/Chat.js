@@ -164,8 +164,9 @@ const ChatWrap = styled.div`
 const UserAvatar = styled.img`
     margin: 5px;
     margin-right: 15px;
+    border-radius: 100%;
     transform: scale(1.3);
-    width: 50px;
+    width: 45px;
 `;
 const Ago = styled.div`
     position: absolute;

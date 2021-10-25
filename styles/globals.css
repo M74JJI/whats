@@ -22,7 +22,7 @@ a {
 .light {
     background-color: #ebebeb;
 }
-@media (max-width: 1848px) {
+@media (max-width: 848px) {
     .hide {
         display: none;
     }

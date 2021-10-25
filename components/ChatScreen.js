@@ -175,9 +175,9 @@ function ChatScreen({ chat, messages }) {
                 }}
             >
                 {recipient ? (
-                    <img src={recipient?.photoURL} />
+                    <Image src={recipient?.photoURL} />
                 ) : (
-                    <img src="https://chatwasap.com/assets/img/default-avatar.png"></img>
+                    <Image src="https://chatwasap.com/assets/img/default-avatar.png"></Image>
                 )}
                 <HeaderInfos className="hInfos">
                     <h3>{ReceivingEmail}</h3>
@@ -483,3 +483,7 @@ const CloseIconn = styled.button`
     margin: 5px;
 `;
 const IconButton = styled.div``;
+const Image = styled.img`
+    width: 60px;
+    border-radius: 100%;
+`;
